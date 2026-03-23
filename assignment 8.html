@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0f8ff;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .card {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .loading {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Weather Dashboard</h2>
+
+    <input type="text" id="city" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div id="message"></div>
+    <div id="result" class="card"></div>
+
+<script>
+async function getWeather() {
+    let city = document.getElementById("city").value;
+    let message = document.getElementById("message");
+    let result = document.getElementById("result");
+
+    result.innerHTML = "";
+    message.innerHTML = "<p class='loading'>Loading...</p>";
+
+    try {
+        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY&units=metric`);
+
+        if (!response.ok) {
+            throw new Error("City not found");
+        }
+
+        let data = await response.json();
+
+        message.innerHTML = "";
+
+        result.innerHTML = `
+            <h3>${data.name}</h3>
+            <p>Temperature: ${data.main.temp} °C</p>
+            <p>Weather: ${data.weather[0].description}</p>
+            <p>Humidity: ${data.main.humidity}%</p>
+        `;
+    } catch (error) {
+        message.innerHTML = "<p class='error'>Error fetching data</p>";
+    }
+}
+</script>
+
+</body>
+</html>
