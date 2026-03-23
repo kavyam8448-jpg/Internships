@@ -1,0 +1,62 @@
+// App.js
+import React from "react";
+
+// Header Component
+function Header() {
+  return <h1 style={{background:"#333", color:"white", padding:"10px"}}>My Website</h1>;
+}
+
+// Navbar Component
+function Navbar() {
+  return (
+    <nav style={{background:"#555", color:"white", padding:"10px"}}>
+      Home | About | Services | Contact
+    </nav>
+  );
+}
+
+// Sidebar Component
+function Sidebar() {
+  return (
+    <div style={{width:"25%", background:"#ddd", padding:"10px"}}>
+      <h3>Sidebar</h3>
+      <p>Links / Ads</p>
+    </div>
+  );
+}
+
+// Content Component
+function Content() {
+  return (
+    <div style={{width:"75%", padding:"10px"}}>
+      <h2>Main Content</h2>
+      <p>This represents the main section of the website.</p>
+    </div>
+  );
+}
+
+// Footer Component
+function Footer() {
+  return (
+    <footer style={{background:"#333", color:"white", padding:"10px", textAlign:"center"}}>
+      © 2026 My Website
+    </footer>
+  );
+}
+
+// Main App Component
+function App() {
+  return (
+    <div>
+      <Header />
+      <Navbar />
+      <div style={{display:"flex"}}>
+        <Sidebar />
+        <Content />
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
