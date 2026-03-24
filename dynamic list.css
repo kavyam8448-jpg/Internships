@@ -1,0 +1,46 @@
+.container {
+  text-align: center;
+  padding: 40px;
+}
+
+.input-section {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  background-color: #339af0;
+  color: white;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #1c7ed6;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+li button {
+  margin-left: 15px;
+  background-color: #ff6b6b;
+}
+
+li button:hover {
+  background-color: #fa5252;
+}
